@@ -28,10 +28,10 @@ button = Button(bottomframe, text='UWU', fg='red', command='exit')
 button.pack( side = "bottom")
 
 TwButton = Button( centerframe, text="Twitter", fg='black', highlightcolor='blue')
-#TwButton.place(relx=0.5, rely=0.5, anchor="center")
+TwButton.pack(side="right")
 
-RdButton = Button( centerframe, text="Reddit", fg='black', padx=2, highlightcolor='blue')
-#RdButton.pack(side="left")
+RdButton = Button( centerframe, text="Reddit", fg='black', highlightcolor='blue')
+RdButton.pack(side="left")
 
 
 Window.mainloop()
