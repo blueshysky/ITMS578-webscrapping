@@ -4,7 +4,7 @@ The objective of this github repository is to develop a simple webscrapping prog
 Reddit and Twitter using their API.  
 
 ## create-env.sh  
-If you are on Ubuntu, you can run the **create-env.sh** script to install the needed dependencies to run  
+If you are on Ubuntu, you can run the ``create-env.sh`` script to install the needed dependencies to run  
 ``python index.py``  
 
 ```
