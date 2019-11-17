@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 sudo apt update 
 #sudo apt install python3 -y 
 
@@ -8,6 +8,5 @@ sudo apt-get install python3-tk -y
 sudo apt-get install python3-bs4 -y
 
 sudo pip3 install requests 
-sudo pip3 install BeautifulSoup4 
 sudo pip3 install BeautifulSoup4
 
