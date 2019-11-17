@@ -10,7 +10,37 @@ import csv
     #import tweepy as tw
     #import pandas as pd
 
+#make a window
+Window = Tk()
+Window.geometry("300x300")
+Window.title("Webbsite")
 
+#make a frame for the button
+frame = Frame(Window)
+frame.pack()
+
+bottomframe = Frame(Window)
+bottomframe.pack( side="bottom" )
+
+centerframe = Frame(Window)
+centerframe.place(relx=0.5, rely=0.5, anchor="center")
+#positioning of the buttons
+# relx=0.5, rely=0.5, anchor=CENTER)
+
+#make a label
+L1 = Label( Window, text="Welcome", fg='blue', bg='yellow', font=("arial", 16, "bold") ).pack()
+#making buttons
+button = Button(bottomframe, text='Exit', fg='red', command='exit')
+button.pack( side = "bottom")
+
+TwButton = Button( centerframe, text="Twitter", fg='black', highlightcolor='blue')
+TwButton.pack(side="right")
+
+RdButton = Button( centerframe, text="Reddit", fg='black', highlightcolor='blue')
+RdButton.pack(side="left")
+
+
+Window.mainloop()
 
 #grab url from a site
 url = 'https://www.reddit.com/r/CasualConversation/comments/dxbvmi/i_got_a_raise_and_then_my_rent_went_up_anyone/'
@@ -24,18 +54,7 @@ print(soup.find_all('svg'))
 #  soupVariable = (soup.find_all('svg'))
 
 
-#trying to write the output from [print(soup.find_all('svg'))] into a csv file 
-with open('output.txt') as csv_file:
-    csv_reader = csv.DictReader(csv_file)
-    line_count = 0
-    #print(soup.find_all('svg'))
-    #for row in csv_reader:
-    #    if line_count == 0:
-    #        print(f'Column names are {", ".join(row)}')
-    #        line_count += 1
-    #    print(soup.find_all('svg'))
-    #    line_count += 1
-   
+
    
    
 
