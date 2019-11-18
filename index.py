@@ -1,14 +1,31 @@
 from tkinter import *
+from tkinter import messagebox
 import requests
 import time
 import urllib3.request
 from bs4 import BeautifulSoup
 import csv
-
 #dependencies used if we were to access Twitter's API
     #import os
     #import tweepy as tw
     #import pandas as pd
+
+
+#need to define functions inside the main loop and before the main gui to read
+def Redditfunction():
+    # print("buttonclicked")
+    #grab url from a site
+    url = 'https://www.reddit.com/r/CasualConversation/comments/dxbvmi/i_got_a_raise_and_then_my_rent_went_up_anyone/'
+    #test to see if there is a respond
+    respond = requests.get(url)
+    #print(respond)
+
+    #This step is to parse html to txt
+    soup = BeautifulSoup(respond.text, "html.parser")
+    print(soup.find_all('svg'))
+    soupVariable = (soup.find_all('svg'))
+    messagebox.showinfo("Status", "Scanning completed")
+
 
 #make a window
 Window = Tk()
@@ -36,22 +53,16 @@ button.pack( side = "bottom")
 TwButton = Button( centerframe, text="Twitter", fg='black', highlightcolor='blue')
 TwButton.pack(side="right")
 
-RdButton = Button( centerframe, text="Reddit", fg='black', highlightcolor='blue')
+RdButton = Button( centerframe, text="Reddit", fg='black', highlightcolor='blue', command=Redditfunction)
 RdButton.pack(side="left")
 
 
 Window.mainloop()
 
-#grab url from a site
-url = 'https://www.reddit.com/r/CasualConversation/comments/dxbvmi/i_got_a_raise_and_then_my_rent_went_up_anyone/'
-#test to see if there is a respond
-respond = requests.get(url)
-#print(respond)
 
-#This step is to parse html to txt
-soup = BeautifulSoup(respond.text, "html.parser")
-print(soup.find_all('svg'))
-#  soupVariable = (soup.find_all('svg'))
+
+
+
 
 
 
