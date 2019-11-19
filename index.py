@@ -12,8 +12,10 @@ import csv
 
 
 #need to define functions inside the main loop and before the main gui to read
-def Redditfunction():
+#defined reddit function
+def redditFunction():
     # print("buttonclicked")
+
     #grab url from a site
     url = 'https://www.reddit.com/r/CasualConversation/comments/dxbvmi/i_got_a_raise_and_then_my_rent_went_up_anyone/'
     #test to see if there is a respond
@@ -25,6 +27,10 @@ def Redditfunction():
     print(soup.find_all('svg'))
     soupVariable = (soup.find_all('svg'))
     messagebox.showinfo("Status", "Scanning completed")
+
+def twitterFunction():
+    
+
 
 
 #make a window
@@ -50,10 +56,10 @@ L1 = Label( Window, text="Welcome", fg='blue', bg='yellow', font=("arial", 16, "
 button = Button(bottomframe, text='Exit', fg='red', command='exit')
 button.pack( side = "bottom")
 
-TwButton = Button( centerframe, text="Twitter", fg='black', highlightcolor='blue')
+TwButton = Button( centerframe, text="Twitter", fg='white', highlightcolor='blue', command=twitterFunction)
 TwButton.pack(side="right")
 
-RdButton = Button( centerframe, text="Reddit", fg='black', highlightcolor='blue', command=Redditfunction)
+RdButton = Button( centerframe, text="Reddit", fg='white', highlightcolor='blue', command=redditFunction)
 RdButton.pack(side="left")
 
 
