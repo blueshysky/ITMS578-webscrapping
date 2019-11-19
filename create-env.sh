@@ -8,14 +8,14 @@ sudo apt-get install python3-bs4 -y
 sudo apt-get install python3-tweepy -y
 
 #python2 install for windows environments
-pip install tweepy
+pip install tweetscraper
 pip install requests 
 pip install BeautifulSoup4
 pip install numpy
 pip install pandas
 
 #python3
-pip3 install tweepy
+pip3 install tweetscraper
 pip3 install requests 
 pip3 install BeautifulSoup4
 pip3 install numpy
