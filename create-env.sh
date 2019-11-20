@@ -13,6 +13,8 @@ pip install requests
 pip install BeautifulSoup4
 pip install numpy
 pip install pandas
+pip install twitterscraper
+
 
 #python3
 pip3 install tweepy
@@ -21,6 +23,7 @@ pip3 install BeautifulSoup4
 pip3 install numpy
 pip3 install pandas
 pip3 install praw
+pip3 install twitterscraper
 
 #resources
 #https://www.earthdatascience.org/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/get-and-use-twitter-data-in-python/
