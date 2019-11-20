@@ -20,6 +20,7 @@ pip3 install requests
 pip3 install BeautifulSoup4
 pip3 install numpy
 pip3 install pandas
+pip3 install praw
 
 #resources
 #https://www.earthdatascience.org/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/get-and-use-twitter-data-in-python/
