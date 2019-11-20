@@ -11,26 +11,49 @@ import tweepy as tw
 import pandas as pd
 from twitterscraper import query_tweets
 import datetime as dt
+import praw
 
 
 
 #need to define functions inside the main loop and before the main gui to read
 #defined reddit function
 def redditFunction():
-    # print("buttonclicked")
+    # # print("buttonclicked")
 
-    #grab url from a site
-    url = 'https://www.reddit.com/r/CasualConversation/comments/dxbvmi/i_got_a_raise_and_then_my_rent_went_up_anyone/'
-    #test to see if there is a respond
-    respond = requests.get(url)
-    #print(respond)
+    # #grab url from a site
+    # url = 'https://www.reddit.com/r/CasualConversation/comments/dxbvmi/i_got_a_raise_and_then_my_rent_went_up_anyone/'
+    # #test to see if there is a respond
+    # respond = requests.get(url)
+    # #print(respond)
 
-    #This step is to parse html to txt
-    soup = BeautifulSoup(respond.text, "html.parser")
-    body = soup.find(id='SHORTCUT_FOCUSABLE_DIV')
-    reply = body.find_all('div', class_='SubredditVars-r-CasualConversation', recursive='false')[1:]
-    print(reply)
+    # #This step is to parse html to txt
+    # soup = BeautifulSoup(respond.text, "html.parser")
+    # mainbody = soup.find('div', class_="_1YCqQVO-9r-Up6QPB9H6_4 _1YCqQVO-9r-Up6QPB9H6_4")
     
+    # for ptag in mainbody.find_all('a', class_="_23wugcdiaj44hdfugIAlnX "):
+    #     print(ptag.text)
+    reddit = praw.Reddit(client_id='CsKw7Vf9lz8lEw',
+                        client_secret='1EM41KrPCUllsfjjPDihLHX4EeE',
+                        user_agent='webscrapper')
+
+    post = reddit.subreddit('CasualConversation')
+    hot = post.hot(limit=100)
+     
+    dict = {"title":[], "subreddit":[], "score":[], "id":[], "url":[], "comms_num":[], "created":[], "body":[]}
+
+    for submission in hot:
+        dict["title"].append(submission.title)
+        dict['subreddit'].append(submission.subreddit)
+        dict["score"].append(submission.score)
+        dict["id"].append(submission.id)
+        dict["url"].append(submission.url)
+        dict["comms_num"].append(submission.num_comments)
+        dict["created"].append(submission.created)
+        dict["body"].append(submission.selftext)
+
+    rf = pd.DataFrame(dict)
+    rf.to_csv(r'reddit.csv')
+        
 
 def twitterFunction(querytxt):
      date_begin=dt.date(2019,11,5)
@@ -106,7 +129,7 @@ class TopLevel_API:
         self.RdButton.configure(highlightcolor="black")
         self.RdButton.configure(pady="0")
         self.RdButton.configure(text='''Reddit''')
-        self.RdButton.configure(command=redditFunction())
+        self.RdButton.configure(command= lambda: redditFunction())
 
         self.TwButton = tk.Button(top)
         self.TwButton.place(relx=0.085, rely=0.317, height=91, width=206)
