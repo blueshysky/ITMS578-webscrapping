@@ -14,8 +14,6 @@ import datetime as dt
 #reddit api dependencies
 import praw
 
-
-
 #need to define functions inside the main loop and before the main gui to read
 #defined reddit function
 def redditFunction():
@@ -71,7 +69,7 @@ def twitterFunction(querytxt):
      df = pd.DataFrame(t.__dict__ for t in tweets)
      df.to_csv(r'tweets.csv', index = None, header =True)
 
-#Gui start up
+#Gui start up root assigned the Tkinter class as an object to open 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
